@@ -1,0 +1,27 @@
+{
+  "name": "jeffrey-cli",
+  "version": "1.0.12",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "jcli": "./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "commander": "^6.2.0",
+    "download-git-repo": "^3.0.2",
+    "fs": "0.0.1-security",
+    "inquirer": "^7.3.3",
+    "ora": "^5.1.0",
+    "colors": "^1.4.0",
+    "handlebars": "^4.7.6",
+    "log-symbols": "^4.0.0",
+    "semver": "^7.3.2"
+  }
+}
