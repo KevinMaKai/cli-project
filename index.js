@@ -61,8 +61,8 @@ const downloadCallback = async(answer,err)=>{
         console.log(`
         `);
         console.log(logSymbols.info,`first step: $ cd ${answer.name}`);
-        console.log(logSymbols.info,`first step: $ cd ${answer.name}`.blue);
-        console.log(logSymbols.info,`second step: npm run dev`.blue);
+        // console.log(logSymbols.info,`first step: $ cd ${answer.name}`.blue);
+        console.log(logSymbols.info,`second step: npm run dev`);
         console.log(`
         `);
     } else {
