@@ -36,16 +36,11 @@ const downloadCallback = async(answer,err)=>{
 
     const filename = `${answer.name}/package.json`;
     if(fs.existsSync(filename)){
-        let _newPagJson = fs.readFileSync(filename).toString();
-        
-        // _newPagJson = JSON.parse(JSON.stringify(_newPagJson, null, 2));
-        _newPagJson = JSON.parse(_newPagJson);
-        _newPagJson.name = answer.name;
-        _newPagJson.author = answer.author;
-        _newPagJson.description = answer.description;
-        _newPagJson = JSON.parse(JSON.stringify(_newPagJson, null, 2));
-        console.log(_newPagJson,answer)
-        fs.writeFileSync(filename,'----',_newPagJson);
+        let newPagJson = fs.readFileSync(filename).toString();
+        newPagJson = JSON.parse(newPagJson);
+        newPagJson = {...newPagJson, ...answer};
+        newPagJson = JSON.stringify(newPagJson, null, '\t');
+        fs.writeFileSync(filename,newPagJson);
 
         loading.color = 'green';
         loading.text = '正在疯狂为你拉node_modules';
@@ -66,8 +61,8 @@ const downloadCallback = async(answer,err)=>{
         console.log(`
         `);
         console.log(logSymbols.info,`first step: $ cd ${answer.name}`);
-        // console.log(logSymbols.info,`first step: $ cd ${answer.name}`);
-        console.log(logSymbols.info,`second step: npm run dev`);
+        console.log(logSymbols.info,`first step: $ cd ${answer.name}`.blue);
+        console.log(logSymbols.info,`second step: npm run dev`.blue);
         console.log(`
         `);
     } else {
